@@ -50,8 +50,6 @@ Routes.show = function *show(id) {
  */
 
 Routes.create = function *create() {
-  console.log(this.request.body);
-
   if (!this.request.body) return;
   var body = this.request.body;
 
