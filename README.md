@@ -48,14 +48,3 @@ You should see this:
 ```
 listening on port 3000
 ```
-
-## Deploying to Heroku
-
-- TODO
-
-## TODO
-
-- setup koa server
-- setup endpoint for twilio to post MMS
-- save MMS to mongo
-- host picture
