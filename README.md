@@ -19,7 +19,7 @@ Send snapchats to twitter. First X people get can view the snap before it self d
 
 ## Running locally
 
-Since we're using generators and other features of ECMAScript 6, you'll have to upgrade your node to 0.11.*:
+Since we're using generators and other features of ECMAScript 6, you'll have to upgrade your node to at least 0.11. We'll use [n](https://www.npmjs.org/package/n). Install it first and then use it to upgrade node to 0.11.14.
 
 ```
 $ npm install n -g
@@ -28,13 +28,13 @@ $ n 0.11.14
 
 You'll need MongoDB (install guide [here](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/)).
 
-Finally, in your command line:
+Navigate to a directory in your command line and enter the below:
 ```
 $ git clone git@github.com:lambtron/twapchat.git
 $ cd twapchat
 ```
 
-Start mongod by going into another terminal window and entering:
+Start MongoDB by going into another terminal window and entering:
 ```
 $ mongod
 ```
@@ -48,3 +48,5 @@ You should see this:
 ```
 listening on port 3000
 ```
+
+Now open up your browser to `localhost:3000`.
