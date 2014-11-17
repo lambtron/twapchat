@@ -12,7 +12,7 @@ var render = require('../lib/render');
 
 var monk = require('monk');
 var wrap = require('co-monk');
-var db = monk('localhost/koaBlog');
+var db = monk('mongodb://localhost/twapchat');
 var snaps = wrap(db.get('snaps'));
 
 /**
