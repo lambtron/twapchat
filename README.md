@@ -24,3 +24,11 @@ Send snapchats to twitter. First X people get can view the snap before it self d
 ## Deploying to Heroku
 
 - TODO
+
+## TODO
+
+- setup koa server
+- setup endpoint for twilio to post MMS
+- save MMS to mongo
+- host picture
+- 

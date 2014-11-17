@@ -17,6 +17,7 @@
     "express": "3.x",
     "mongoose": "latest",
     "snapchat": "^1.0.6",
+    "twilio": "^1.8.0",
     "underscore": "latest"
   }
 }
