@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 /**
  * Module dependencies.
@@ -24,7 +25,7 @@ app.use(logger());
  * Configure routes.
  */
 
-var routes = require('./server/routes.js');
+var routes = require('../server/routes.js');
 app.use(route.get('/', routes.index));
 app.use(route.get('/snap/:id', routes.show));
 app.use(route.post('/api/snap', routes.create));
