@@ -38,9 +38,9 @@ Routes.show = function *show(id) {
   var snap = yield snaps.findOne({_id: id});
   if (!snap) this.throw(404, 'Invalid snap id');
   if (--snap.views === 0) {
-    // delete tweet
-    // delete snap from Mongo
-    // delete media from twilio
+    // yield Twitter.delete(snap);
+    // yield Twilio.delete(snap);
+    yield snaps.remove({ _id: id });
   };
   this.body = yield render('snap', { snap: snap });
 };
