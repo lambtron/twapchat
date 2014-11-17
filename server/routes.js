@@ -64,8 +64,7 @@ Routes.create = function *create() {
     views: 10,
     tweetId: null
   };
-  // yield generateUrl(snap);
-  // yield tweet(snap);
+  // snap.tweetId = yield tweet(snap);
   // yield snaps.insert(snap);
 };
 
