@@ -44,11 +44,12 @@ Routes.show = function *show() {
  */
 
 Routes.create = function *create() {
+  console.log(this.request.body);
   // Save snap to Mongo.
   // Tweet it.
-  var snap = yield parse(this);
-  yield snaps.insert(snap);
-  yield tweet(snap);
+  // var snap = yield parse(this);
+  // yield snaps.insert(snap);
+  // yield tweet(snap);
 };
 
 /**

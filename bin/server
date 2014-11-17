@@ -7,6 +7,7 @@
 var logger = require('koa-logger');
 var route = require('koa-route');
 var koa = require('koa');
+var bodyParser = require('koa-bodyparser');
 var PORT = process.env.PORT || 3000;
 
 /**
@@ -20,6 +21,7 @@ module.exports = app = koa();
  */
 
 app.use(logger());
+app.use(bodyParser());
 
 /**
  * Configure routes.
