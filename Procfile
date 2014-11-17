@@ -1,1 +1,1 @@
-web: node server.js --harmony
+web: make
