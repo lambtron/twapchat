@@ -19,7 +19,7 @@ Send snapchats to twitter. First X people get can view the snap before it self d
 
 ## Running locally
 
-Since we're using generators and other features of ECMAScript 6, you'll have to upgrade your node to at least 0.11. We'll use [n](https://www.npmjs.org/package/n). Install it first and then use it to upgrade node to 0.11.14.
+Since we're using generators and other features of ECMAScript 6, you'll have to upgrade your node to at least 0.11. We'll use [n](https://www.npmjs.org/package/n) to manage your node version. Install it first and then use it to upgrade node to 0.11.14.
 
 ```
 $ npm install n -g
