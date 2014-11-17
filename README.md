@@ -1,11 +1,11 @@
 Twapchat
 ========
 
-Send your snapchats to twitter. First X people get can view the snap before it self destructs.
+Send snapchats to twitter. First X people get can view the snap before it self destructs.
 
 ## How to use
 
-- text a picture to a phone number
+- text a picture to a (240) 565-0664
 - @twapchat tweets the picture
 - picture only gets 10 views before it self destructs
 
