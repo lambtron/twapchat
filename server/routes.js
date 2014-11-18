@@ -16,7 +16,7 @@ var db = monk('mongodb://localhost/twapchat');
 var snaps = wrap(db.get('snaps'));
 
 /**
- * Define routes
+ * Define `Routes`
  */
 
 var Routes = {};
@@ -64,7 +64,7 @@ Routes.create = function *create() {
     views: 10,
     tweetId: null
   };
-  // snap.tweetId = yield tweet(snap);
+  // snap.tweetId = yield Twitter.tweet(snap);
   // yield snaps.insert(snap);
 };
 
