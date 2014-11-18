@@ -6,10 +6,10 @@
 var parse = require('co-body');
 var render = require('../lib/render');
 var Tweet = require('./tweet');
-var snaps = require('../lib/snaps');
+var Snaps = require('../lib/snaps');
 
 /**
- * Define `Routes`
+ * Define `Routes`.
  */
 
 var Routes = {};
@@ -28,12 +28,12 @@ Routes.index = function *index() {
 
 Routes.show = function *show(id) {
   if (!id) this.throw(404, 'Did not provide snap id');
-  var snap = yield snaps.findOne({_id: id});
+  var snap = yield Snaps.findOne({_id: id});
   if (!snap) this.throw(404, 'Invalid snap id');
   if (--snap.views === 0) {
     // yield Tweet.destroy(snap);
     // yield Twilio.destroy(snap);
-    yield snaps.remove({ _id: id });
+    yield Snaps.remove({ _id: id });
   };
   this.body = yield render('snap', { snap: snap });
 };
@@ -52,7 +52,7 @@ Routes.create = function *create() {
     tweetId: null
   };
   // snap.tweetId = yield Tweet.send(snap);
-  // yield snaps.insert(snap);
+  // yield Snaps.insert(snap);
 };
 
 /**
