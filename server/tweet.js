@@ -36,7 +36,7 @@ Tweet.send = function *send(snap) {
  */
 
 Tweet.delete = function *delete(tweetId) {
-  Twitter.destroyTweet({ id: tweetId }, error, success);
+  // Twitter.destroyTweet({ id: tweetId }, error, success);
 };
 
 /**
@@ -44,19 +44,3 @@ Tweet.delete = function *delete(tweetId) {
  */
 
 module.exports = Tweet;
-
-/**
- * Helper function to print error.
- */
-
-function error(err, response, body) {
-  console.log('ERROR [%s]', err);
-};
-
-/**
- * Helper function to print success.
- */
-
-function success(data) {
-  console.log('Data [%s]', data);
-};
