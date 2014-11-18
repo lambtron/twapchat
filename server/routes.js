@@ -6,15 +6,7 @@
 var parse = require('co-body');
 var render = require('../lib/render');
 var Tweet = require('./tweet');
-
-/**
- * Configure monk.
- */
-
-var monk = require('monk');
-var wrap = require('co-monk');
-var db = monk('mongodb://localhost/twapchat');
-var snaps = wrap(db.get('snaps'));
+var snaps = require('../lib/snaps');
 
 /**
  * Define `Routes`
@@ -39,8 +31,8 @@ Routes.show = function *show(id) {
   var snap = yield snaps.findOne({_id: id});
   if (!snap) this.throw(404, 'Invalid snap id');
   if (--snap.views === 0) {
-    // yield Tweet.delete(snap);
-    // yield Twilio.delete(snap);
+    // yield Tweet.destroy(snap);
+    // yield Twilio.destroy(snap);
     yield snaps.remove({ _id: id });
   };
   this.body = yield render('snap', { snap: snap });

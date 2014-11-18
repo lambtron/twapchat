@@ -35,7 +35,7 @@ Tweet.send = function *send(snap) {
  * @param {String} tweetId
  */
 
-Tweet.delete = function *delete(tweetId) {
+Tweet.destroy = function *destroy(tweetId) {
   // Twitter.destroyTweet({ id: tweetId }, error, success);
 };
 
