@@ -33,7 +33,7 @@ Routes.show = function *show(id) {
   var views = --snap.views;
   Snaps.update({ id: id }, snap);
   if (views === 0) {
-    // yield Tweet.destroy(snap);
+    yield Tweet.destroy(snap);
     // yield Twilio.destroy(snap);
     yield Snaps.remove({ id: id });
   };
