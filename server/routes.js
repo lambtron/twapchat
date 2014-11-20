@@ -27,14 +27,18 @@ Routes.index = function *index() {
  */
 
 Routes.show = function *show(id) {
+  console.log(id);
   if (!id) this.throw(404, 'Did not provide snap id');
-  var snap = yield Snaps.findOne({_id: id});
-  if (!snap) this.throw(404, 'Invalid snap id');
-  if (--snap.views === 0) {
+  var snap = yield Snaps.findOne({ id: id });
+  if (!snap) this.throw(404, 'This snap no longer exists!');
+  var views = --snap.views;
+  Snaps.update({ id: id }, snap);
+  if (views === 0) {
     // yield Tweet.destroy(snap);
     // yield Twilio.destroy(snap);
-    yield Snaps.remove({ _id: id });
+    yield Snaps.remove({ id: id });
   };
+
   this.body = yield render('snap', { snap: snap });
 };
 
