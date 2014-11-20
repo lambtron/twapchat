@@ -37,7 +37,6 @@ Routes.show = function *show(id) {
     // yield Twilio.destroy(snap);
     yield Snaps.remove({ id: id });
   };
-
   this.body = yield render('snap', { snap: snap });
 };
 
