@@ -21,7 +21,7 @@ var Tweet = {};
 
 Tweet.send = function *send(snap) {
   var params = {
-    status: 'Check this out before it\'s gone: '
+    status: 'Check out this snap before it\'s gone: '
       + 'http://twapchat.herokuapp.com/snap/'
       + snap.id
   };
