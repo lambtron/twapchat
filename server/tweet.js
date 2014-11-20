@@ -25,8 +25,9 @@ Tweet.send = function *send(snap) {
       + 'http://twapchat.herokuapp.com/snap/'
       + snap.id
   };
-  // var tweet = yield Twitter.postTweet(params, error, success);
-  // return tweet.id;
+  var tweet = yield Twitter.post('statuses/update', params);
+  var tweetObj = JSON.parse(tweet);
+  return tweetObj.id;
 };
 
 /**
@@ -36,7 +37,7 @@ Tweet.send = function *send(snap) {
  */
 
 Tweet.destroy = function *destroy(tweetId) {
-  // Twitter.destroyTweet({ id: tweetId }, error, success);
+  Twitter.post('statuses/destroy/' + tweetId, { id: tweetId });
 };
 
 /**
