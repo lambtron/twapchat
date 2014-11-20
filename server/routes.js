@@ -27,7 +27,6 @@ Routes.index = function *index() {
  */
 
 Routes.show = function *show(id) {
-  console.log(id);
   if (!id) this.throw(404, 'Did not provide snap id');
   var snap = yield Snaps.findOne({ id: id });
   if (!snap) this.throw(404, 'This snap no longer exists!');
