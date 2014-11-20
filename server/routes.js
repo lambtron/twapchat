@@ -31,8 +31,6 @@ Routes.show = function *show(id) {
   var snap = yield Snaps.findOne({ id: id });
   if (!snap) this.throw(404, 'This snap no longer exists!');
   var views = --snap.views;
-  console.log(snap.id);
-  console.log(snap.views);
   Snaps.update({ id: id }, snap);
   if (views === 0) {
     yield Tweet.destroy(snap);
