@@ -27,7 +27,6 @@ Tweet.send = function *send(snap) {
   };
   var tweet = yield Twitter.post('statuses/update', params);
   var tweetObj = JSON.parse(tweet);
-  console.log(tweetObj);
   return tweetObj.id;
 };
 
