@@ -56,7 +56,7 @@ Routes.create = function *create() {
   };
   snap.tweetId = yield Tweet.send(snap);
   yield Snaps.insert(snap);
-  this.body = 'Thank you for your submission.';
+  this.body = 'Thanks for sending!';
 };
 
 /**
