@@ -47,7 +47,7 @@ Routes.create = function *create() {
   var snap = {
     id: body.MessageSid,
     url: body.MediaUrl0,
-    views: 1,
+    views: 10,
     tweetId: null
   };
   snap.tweetId = yield Tweet.send(snap);
