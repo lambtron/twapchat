@@ -52,7 +52,7 @@ Routes.create = function *create() {
   };
   snap.tweetId = yield Tweet.send(snap);
   yield Snaps.insert(snap);
-  this.body = 'Thanks for sending!';
+  this.body = 'Your snap is tweeted! Check @twapchat to see.';
 };
 
 /**
