@@ -1,8 +1,14 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-  <img src="{{ snap.url }}" />
-  <p>{{ snap.views }} views left!</p>
+  <div style="text-align: center">
+    <div class="row">
+      <img src="{{ snap.url }}" />
+    </div>
+    <div class="row">
+      <p>{{ snap.views }} views left!</p>
+    </div>
+  </div>
   <a class="twitter-share-button"
      href="https://twitter.com/share"
      data-via="twapchat"
