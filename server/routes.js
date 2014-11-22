@@ -67,8 +67,8 @@ module.exports = Routes;
  * @param {object} snap
  */
 
-function *destroy(snap) {
-  yield Tweet.destroy(snap);
-  yield Media.destroy(snap);
-  yield Snaps.remove({ id: snap.id });
+function destroy(snap) {
+  Tweet.destroy(snap);
+  Media.destroy(snap);
+  Snaps.remove({ id: snap.id });
 }
