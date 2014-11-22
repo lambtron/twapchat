@@ -25,6 +25,7 @@
     "monk": "^0.9.1",
     "simple-twitter": "^1.0.7",
     "swig": "^1.4.2",
-    "thunkify-wrap": "^1.0.4"
+    "thunkify-wrap": "^1.0.4",
+    "twilio": "^1.9.0"
   }
 }
