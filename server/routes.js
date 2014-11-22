@@ -5,8 +5,9 @@
 
 var parse = require('co-body');
 var render = require('../lib/render');
-var Tweet = require('./tweet');
 var Snaps = require('../lib/snaps');
+var Tweet = require('./tweet');
+var Media = require('./media');
 
 /**
  * Define `Routes`.
@@ -32,11 +33,7 @@ Routes.show = function *show(id) {
   if (!snap) this.throw(404, 'This snap no longer exists!');
   var views = --snap.views;
   Snaps.update({ id: id }, snap);
-  if (views === 0) {
-    yield Tweet.destroy(snap);
-    // yield Twilio.destroy(snap);
-    yield Snaps.remove({ id: id });
-  };
+  if (views === 0) destroy(snap);
   this.body = yield render('snap', { snap: snap });
 };
 
@@ -63,3 +60,15 @@ Routes.create = function *create() {
  */
 
 module.exports = Routes;
+
+/**
+ * Destroy instances of snap.
+ *
+ * @param {object} snap
+ */
+
+function *destroy(snap) {
+  yield Tweet.destroy(snap);
+  yield Media.destroy(snap);
+  yield Snaps.remove({ id: snap.id });
+}
