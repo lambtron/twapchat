@@ -4,6 +4,7 @@
  */
 
 var Twitter = require('../lib/twitter');
+var Bitly = require('../lib/bitly');
 
 /**
  * Define `Tweet`.
@@ -20,11 +21,10 @@ var Tweet = {};
  */
 
 Tweet.send = function *send(snap) {
-  var params = {
-    status: snap.message + ' '
-      + 'http://twapchat.herokuapp.com/snap/'
-      + snap.id
-  };
+  var urlString = yield Bitly.shortenLink('http://twapchat.herokuapp.com/snap/'
+    + snap.id);
+  var url = JSON.parse(urlString);
+  var params = { status: snap.message + ' ' + url.data.url };
   var tweet = yield Twitter.post('statuses/update', params);
   var tweetObj = JSON.parse(tweet);
   return tweetObj.id;
