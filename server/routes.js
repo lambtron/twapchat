@@ -32,7 +32,6 @@ Routes.show = function *show(id) {
   var snap = yield Snaps.findOne({ id: id });
   if (!snap) return this.body = 'This snap no longer exists!';
   var views = --snap.views;
-  console.log(views);
   Snaps.update({ id: id }, snap);
   if (views === 0) destroy(snap);
   this.body = yield render('snap', { snap: snap });
@@ -48,7 +47,7 @@ Routes.create = function *create() {
   var snap = {
     id: body.MessageSid,
     url: body.MediaUrl0,
-    views: 10,
+    views: 20,
     tweetId: null,
     message: body.Body
   };
