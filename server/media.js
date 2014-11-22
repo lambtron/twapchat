@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-var Twilio = require('../lib/twilio.js');
+var Twilio = require('../lib/twilio');
 
 /**
  * Define `Twilio`.

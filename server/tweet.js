@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-var Twitter = require('../lib/twitter.js');
+var Twitter = require('../lib/twitter');
 
 /**
  * Define `Tweet`.
@@ -21,7 +21,7 @@ var Tweet = {};
 
 Tweet.send = function *send(snap) {
   var params = {
-    status: 'Check out this snap before it\'s gone: '
+    status: snap.message + ' '
       + 'http://twapchat.herokuapp.com/snap/'
       + snap.id
   };
