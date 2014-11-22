@@ -44,6 +44,9 @@ Routes.show = function *show(id) {
 Routes.create = function *create() {
   if (!this.request.body) return;
   var body = this.request.body;
+
+  console.log(body);
+
   var snap = {
     id: body.MessageSid,
     url: body.MediaUrl0,
