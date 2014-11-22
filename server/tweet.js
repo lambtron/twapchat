@@ -24,6 +24,9 @@ Tweet.send = function *send(snap) {
   var urlString = yield Bitly.shortenLink('http://twapchat.herokuapp.com/snap/'
     + snap.id);
   var url = JSON.parse(urlString);
+
+  console.log(url);
+
   var message = snap.message;
   if (message.length === 0)
     message = 'Check out this snap before it expires: ';
