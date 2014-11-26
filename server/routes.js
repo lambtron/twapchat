@@ -3,7 +3,6 @@
  * Module dependencies.
  */
 
-var parse = require('co-body');
 var render = require('../lib/render');
 var Snaps = require('../lib/snaps');
 var Tweet = require('./tweet');
