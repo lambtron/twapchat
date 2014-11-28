@@ -20,6 +20,7 @@ var Media = {};
 Media.destroy = function destroy(snap) {
   var mediaId = snap.url.substring(snap.url.lastIndexOf('/') + 1);
   Twilio.messages(snap.id).media(mediaId).delete();
+  console.log('media destroyed');
 };
 
 /**
