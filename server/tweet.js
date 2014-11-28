@@ -40,8 +40,7 @@ Tweet.send = function *send(snap) {
  */
 
 Tweet.destroy = function *destroy(snap) {
-  Twitter.post('statuses/destroy/' + snap.tweetId + '.json',
-    { id: snap.tweetId });
+  Twitter.post('statuses/destroy', { id: snap.tweetId });
 };
 
 /**
