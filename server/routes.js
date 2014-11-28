@@ -32,8 +32,9 @@ Routes.show = function *show(id) {
   if (!snap) return this.body = 'This snap no longer exists!';
   var views = --snap.views;
   Snaps.update({ id: id }, snap);
+  yield render('snap', { snap: snap });
   if (views === 0) destroy(snap);
-  this.body = yield render('snap', { snap: snap });
+  this.body = 'OK';
 };
 
 /**
