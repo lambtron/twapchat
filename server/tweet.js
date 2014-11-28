@@ -39,7 +39,7 @@ Tweet.send = function *send(snap) {
  * @param {Object} snap
  */
 
-Tweet.destroy = function *destroy(snap) {
+Tweet.destroy = function destroy(snap) {
   console.log('destroying tweet..');
   console.log(snap.tweetId);
   Twitter.post('statuses/destroy', { id: snap.tweetId })(function(err, res) {
