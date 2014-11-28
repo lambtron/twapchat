@@ -27,7 +27,7 @@ Tweet.send = function *send(snap) {
   var message = snap.message;
   if (message.length === 0)
     message = 'Check out this snap before it expires: ';
-  var params = { status: message + ' ' + url.data.url };
+  var params = {status: message + ' ' + url.data.url};
   var tweet = yield Twitter.post('statuses/update', params);
   var tweetObj = JSON.parse(tweet);
   return tweetObj.id;
@@ -40,12 +40,7 @@ Tweet.send = function *send(snap) {
  */
 
 Tweet.destroy = function destroy(snap) {
-  console.log('destroying tweet..');
-  console.log(snap.tweetId);
-  Twitter.post('statuses/destroy', { id: snap.tweetId })(function(err, res) {
-    console.log(err);
-    console.log(res);
-  });
+  Twitter.post('statuses/destroy', {id: snap.tweetId + ''});
 };
 
 /**
