@@ -29,7 +29,7 @@ Routes.index = function *index() {
 Routes.show = function *show(id) {
   if (!id) this.throw(404, 'Did not provide snap id');
   var snap = yield Snaps.findOne({ id: id });
-  if (!snap || snap.views === 1) this.throw(404, 'This snap no longer exists!');
+  if (!snap || snap.views === 1) return this.body = 'This snap no longer exists!';
   var views = --snap.views;
   Snaps.update({ id: id }, snap);
   if (views === 0) destroy(snap);
