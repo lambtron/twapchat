@@ -3,7 +3,8 @@
  * Module dependencies.
  */
 
-var Twitter = require('../lib/twitter.js');
+var Twitter = require('../lib/twitter');
+var Bitly = require('../lib/bitly');
 
 /**
  * Define `Tweet`.
@@ -20,11 +21,13 @@ var Tweet = {};
  */
 
 Tweet.send = function *send(snap) {
-  var params = {
-    status: 'Check out this snap before it\'s gone: '
-      + 'http://twapchat.herokuapp.com/snap/'
-      + snap.id
-  };
+  var urlString = yield Bitly.shortenLink('http://twapchat.herokuapp.com/snap/'
+    + snap.id);
+  var url = JSON.parse(urlString);
+  var message = snap.message;
+  if (message.length === 0)
+    message = 'Check out this snap before it expires: ';
+  var params = {status: message + ' ' + url.data.url};
   var tweet = yield Twitter.post('statuses/update', params);
   var tweetObj = JSON.parse(tweet);
   return tweetObj.id;
@@ -36,9 +39,8 @@ Tweet.send = function *send(snap) {
  * @param {Object} snap
  */
 
-Tweet.destroy = function *destroy(snap) {
-  Twitter.post('statuses/destroy/' + snap.tweetId + '.json',
-    { id: snap.tweetId });
+Tweet.destroy = function destroy(snap) {
+  Twitter.post('statuses/destroy', {id: snap.tweetId + ''});
 };
 
 /**

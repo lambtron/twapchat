@@ -3,7 +3,6 @@
  * Module dependencies.
  */
 
-var parse = require('co-body');
 var render = require('../lib/render');
 var Snaps = require('../lib/snaps');
 var Tweet = require('./tweet');
@@ -47,12 +46,13 @@ Routes.create = function *create() {
   var snap = {
     id: body.MessageSid,
     url: body.MediaUrl0,
-    views: 10,
-    tweetId: null
+    views: 20,
+    tweetId: null,
+    message: body.Body
   };
   snap.tweetId = yield Tweet.send(snap);
   yield Snaps.insert(snap);
-  this.body = 'Thanks for sending!';
+  this.body = 'Your snap is tweeted! Check @twapchat to see.';
 };
 
 /**
